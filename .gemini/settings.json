@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "TalkToFigma": {
+      "command": "bunx",
+      "args": [
+        "cursor-talk-to-figma-mcp@latest",
+        "--server=vps.sonnylab.com"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@smithery-ai/github",
+        "--key",
+        "7fb27334-e93c-4e3d-b311-6aeb182b33a4",
+        "--profile",
+        "dutch-guanaco-6bIp0p"
+      ]
+    }
+    }      
+}
