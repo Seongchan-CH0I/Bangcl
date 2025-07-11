@@ -3,122 +3,175 @@
   \****************************************************************************************************************************************************************************************************************************************************************************/
 .HomeNavBar_navbar__HYH8K {
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 24px 0 16px 0;
-  background: #fff;
+  padding: 16px 20px; /* Adjust padding */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04); /* Subtle shadow */
+  position: -webkit-sticky;
+  position: sticky; /* Make it sticky */
+  top: 0;
+  z-index: 1000;
 }
 .HomeNavBar_logo__cMuRu {
-  font-size: 1.6rem;
+  font-size: 1.8rem; /* Slightly larger */
   font-weight: 700;
-  color: #2196f3;
-  letter-spacing: -1px;
+  color: #333; /* Darker color */
+  letter-spacing: -0.5px;
 }
 .HomeNavBar_logoSub__oRWuT {
-  font-size: 0.9rem;
-  color: #b5b5b5;
-  margin-left: 8px;
+  font-size: 0.8rem;
+  color: #999; /* More subtle */
+  margin-left: 6px;
   font-weight: 400;
 }
 .HomeNavBar_menu__jclBB {
   display: flex;
-  gap: 32px;
+  gap: 24px; /* Reduced gap */
 }
 .HomeNavBar_menuItem__Y7UOt {
-  font-size: 1.1rem;
-  color: #b5b5b5;
+  font-size: 1rem; /* Slightly smaller */
+  color: #555; /* Neutral color */
   cursor: pointer;
   position: relative;
-  padding-bottom: 4px;
-  border: none;
+  padding: 4px 0; /* Add some vertical padding */
+  transition: color 0.2s ease-in-out;
+}
+.HomeNavBar_menuItem__Y7UOt:hover {
+  color: #000; /* Darker on hover */
 }
 .HomeNavBar_active__wBT_k {
-  color: #2196f3;
+  color: #000; /* Active color */
+  font-weight: 600; /* Make active bolder */
+}
+
+.HomeNavBar_authContainer__91yPD {
+  min-width: 150px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .HomeNavBar_loginButton__QLHoS {
   background: transparent;
-  border: none;
-  color: #444;
-  padding: 8px 16px;
+  border: none; /* Remove border */
+  color: #555;
+  padding: 8px 12px; /* Adjust padding */
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 500;
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
+  border-radius: 4px; /* Slightly rounded corners */
+  transition: background-color 0.2s ease-in-out;
 }
 
 .HomeNavBar_loginButton__QLHoS:hover {
   background-color: #f0f0f0;
+}
+
+.HomeNavBar_userContainer__n7cze {
+  position: relative;
+  cursor: pointer;
+  border: none; /* Remove border */
+  border-radius: 4px; /* Slightly rounded corners */
+  padding: 8px 12px; /* Adjust padding */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.HomeNavBar_userContainer__n7cze:hover {
+  background-color: #f0f0f0;
+}
+
+.HomeNavBar_username__2kknZ {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #333; /* Darker color */
+}
+
+.HomeNavBar_logoutButton__w37SS {
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-right: 8px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.HomeNavBar_logoutButton__w37SS:hover {
+  background-color: #e0e0e0;
 }
 /*!******************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[3]!./src/app/home/HomeCardList.module.css ***!
   \******************************************************************************************************************************************************************************************************************************************************************************/
 .HomeCardList_cardList__YvwlA {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  grid-gap: 32px 24px;
-  gap: 32px 24px;
-  margin: 32px auto 0 auto;
-  max-width: 1200px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust minmax for better responsiveness */
+  grid-gap: 24px;
+  gap: 24px; /* Reduced gap */
+  margin-top: 24px; /* Space from navbar */
+}
+.HomeCardList_cardLink__0LaQW {
+  text-decoration: none;
+  color: inherit;
 }
 .HomeCardList_card__34f3O {
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  /* Inherit base card styles from globals.css */
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 .HomeCardList_card__34f3O:hover {
-  box-shadow: 0 4px 32px rgba(33,150,243,0.10);
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Enhanced shadow on hover */
+}
+.HomeCardList_cardImageContainer__zA1UX {
+  width: 100%;
+  height: 200px; /* Fixed height for images */
+  overflow: hidden;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 .HomeCardList_cardImg__bK_un {
   width: 100%;
-  height: 180px;
+  height: 100%;
   object-fit: cover;
   background: #eee;
 }
 .HomeCardList_cardBody__kFiDK {
-  padding: 20px 18px 16px 18px;
+  padding: 16px; /* Consistent padding */
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 .HomeCardList_cardTitle__w3mkn {
   font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 2px;
-  color: #222;
+  font-weight: 600; /* Slightly less bold */
+  color: #333;
 }
 .HomeCardList_cardDesc__UrW6d {
-  font-size: 0.98rem;
-  color: #444;
-  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 4px;
 }
 .HomeCardList_cardMeta__znd5L {
   display: flex;
   justify-content: space-between;
-  font-size: 0.92rem;
-  color: #2196f3;
-  margin-bottom: 4px;
+  align-items: center;
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 8px;
 }
-.HomeCardList_cardStats__4yIem {
-  display: flex;
-  gap: 16px;
-  font-size: 0.95rem;
-  color: #b5b5b5;
+.HomeCardList_cardUser__rJ08T {
+  font-weight: 500;
 }
-.HomeCardList_cardLike__JV_X6 {
-  color: #f44336;
+.HomeCardList_cardTime__AuKLt {
+  color: #999;
 }
-.HomeCardList_cardComment__h_RIH {
-  color: #2196f3;
-} 
+ 
 /*!*********************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/next/dist/build/webpack/loaders/css-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[2]!./node_modules/next/dist/build/webpack/loaders/postcss-loader/src/index.js??ruleSet[1].rules[5].oneOf[7].use[3]!./src/app/login/_features/ui/LoginPageView.module.css ***!
   \*********************************************************************************************************************************************************************************************************************************************************************************************/
@@ -128,7 +181,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -137,91 +190,127 @@
 
 .LoginPageView_loginForm__MC_n7 {
   position: relative;
-  width: 400px;
+  width: min(400px, 90vw); /* Use min() for responsive width */
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 35px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .LoginPageView_closeButton__Ghdja {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px; /* Slightly larger for better clickability */
   cursor: pointer;
-  color: #888;
+  color: #aaa; /* Lighter color */
+  transition: color 0.2s ease-in-out;
+}
+
+.LoginPageView_closeButton__Ghdja:hover {
+  color: #777;
 }
 
 .LoginPageView_loginTitle__ZUbmd {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 2.2rem; /* Adjusted font size */
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
 }
 
 .LoginPageView_loginDesc__UF1kD {
-  color: #888;
-  margin-bottom: 16px;
+  color: #777;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 .LoginPageView_inputLabel__uTXSO {
   font-weight: 500;
-  color: #999;
+  color: #555;
+  font-size: 0.9rem;
 }
 
 .LoginPageView_inputField__C_QL1 {
   width: 100%;
-  padding: 12px;
-  margin-top: 4px;
-  border: 1px solid #000842;
+  padding: 12px 15px;
+  margin-top: 6px;
+  border: 1px solid #ddd; /* Lighter border */
   border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.LoginPageView_inputFieldPassword__xuG_K {
-  border: 1px solid #999;
+.LoginPageView_inputField__C_QL1:focus {
+  border-color: #999; /* Darker on focus */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.2); /* Subtle focus ring */
 }
 
 .LoginPageView_loginButton__X4HRe {
-  background: #fff;
-  color: #333;
-  border: 1px solid #ccc;
+  background: #444; /* Darker, more neutral button */
+  color: #fff;
+  border: none;
   border-radius: 8px;
-  padding: 12px 24px;
-  font-weight: 500;
-  font-size: 16px;
-  margin-top: 16px;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 15px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .LoginPageView_loginButton__X4HRe:hover {
-  background: #f0f0f0;
-  border-color: #bbb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  background: #333;
+  transform: translateY(-1px);
 }
 
 .LoginPageView_loginButton__X4HRe:active {
-  background: #e0e0e0;
-  border-color: #aaa;
-  transform: translateY(1px);
+  background: #222;
+  transform: translateY(0);
 }
 
+.LoginPageView_toggleFormText__zDL73 {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.LoginPageView_toggleFormLink__Tmxa_ {
+  color: #555; /* Neutral link color */
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+
+.LoginPageView_toggleFormLink__Tmxa_:hover {
+  color: #333;
+}
+
+/* SNS buttons - assuming they are still needed, adjust for minimal */
 .LoginPageView_snsButton__P_7z0 {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: none;
-  margin: 0 8px;
+  border: 1px solid #eee; /* Subtle border */
+  margin: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .LoginPageView_snsFacebook___d6WO {
-  background: #18acfe;
+  background: #3b5998;
   color: #fff;
 }
 .LoginPageView_snsApple__lA662 {
@@ -230,6 +319,10 @@
 }
 .LoginPageView_snsGoogle__ebSVj {
   background: #fff;
-  color: #000;
-  border: 1px solid #eee;
+  color: #555;
+  border-color: #ccc;
+}
+
+.LoginPageView_snsButton__P_7z0:hover {
+  opacity: 0.9;
 } 

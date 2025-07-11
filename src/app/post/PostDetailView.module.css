@@ -1,0 +1,103 @@
+.postCard {
+  /* Inherit base card styles from globals.css */
+  padding: 30px; /* Slightly more padding */
+}
+
+.title {
+  font-size: 2.2rem; /* Slightly larger title */
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.postActions {
+  display: flex;
+  gap: 15px; /* Increased gap for buttons */
+  margin-bottom: 20px; /* More space below buttons */
+}
+
+.meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #777; /* Softer color */
+  margin-bottom: 20px;
+  font-size: 0.95rem;
+}
+
+.deleteBtn {
+  background-color: transparent;
+  color: #e74c3c; /* More subtle red */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: color 0.2s ease-in-out;
+}
+
+.deleteBtn:hover {
+  color: #c0392b;
+}
+
+.editBtn {
+  background-color: transparent;
+  color: #27ae60; /* More subtle green */
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  white-space: nowrap;
+  transition: color 0.2s ease-in-out;
+}
+
+.editBtn:hover {
+  color: #229a54;
+}
+
+.content {
+  font-size: 1.05rem; /* Slightly smaller content font */
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.content p {
+  margin-bottom: 1em; /* Paragraph spacing */
+}
+
+.additionalImages {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 30px;
+}
+
+.imageBlock {
+  margin-bottom: 25px;
+  background: #fdfdfd; /* Lighter background for image blocks */
+  border-radius: 6px;
+  padding: 15px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+}
+
+.imageBlock:last-child {
+  margin-bottom: 0;
+}
+
+.imageBlock .image {
+  width: 100%;
+  height: auto;
+  max-height: 550px; /* Adjusted max height */
+  object-fit: contain;
+  border-radius: 4px;
+  margin-bottom: 15px;
+}
+
+.imageCaption {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  padding: 0 10px;
+}
