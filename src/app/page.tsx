@@ -12,4 +12,4 @@ export default function HomePage() {
 
   return null; // Or a loading spinner
 }
-// 커밋용 변경사항
+// 커밋용 변경사항2
