@@ -1,0 +1,7 @@
+node_modules/
+.next/
+backend/__pycache__/
+backend/.env
+backend/*.pyc
+backend/.pytest_cache/
+.gemini/

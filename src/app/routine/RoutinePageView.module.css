@@ -1,0 +1,161 @@
+.routineForm {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.shareBtn {
+  background-color: #444; /* Changed to match saveBtn color */
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.shareBtn:hover {
+  background-color: #333;
+  transform: translateY(-1px);
+}
+
+.shareBtn:active {
+  background-color: #222;
+  transform: translateY(0);
+}
+
+.uploadArea h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.usernameSection, .titleSection, .thumbnailSection {
+  margin-bottom: 30px;
+}
+
+.usernameInput, .titleInput, .summaryTextarea, .imgDesc {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.usernameInput:focus, .titleInput:focus, .summaryTextarea:focus, .imgDesc:focus {
+  border-color: #999;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.2);
+}
+
+.usernameInput[readOnly] {
+  background-color: #f9f9f9;
+  cursor: default;
+}
+
+.thumbnailUploadBox, .addBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 200px;
+  border: 2px dashed #ddd;
+  border-radius: 12px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin-bottom: 20px;
+}
+
+.thumbnailUploadBox:hover, .addBox:hover {
+  border-color: #bbb;
+  background-color: #f0f0f0;
+}
+
+.addIcon {
+  font-size: 3rem;
+  color: #bbb;
+  line-height: 1;
+}
+
+.thumbnailPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.imgBlock {
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.03);
+}
+
+.imgRow {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.uploadImg {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.imgDesc {
+  flex-grow: 1;
+  min-height: 150px;
+  resize: vertical;
+}
+
+.removeBtn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  margin-top: 10px;
+}
+
+.removeBtn:hover {
+  background-color: #c0392b;
+}
+
+.addBtn {
+  background-color: #eee;
+  color: #555;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.addBtn:hover {
+  background-color: #ddd;
+}
