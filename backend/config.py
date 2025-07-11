@@ -6,7 +6,7 @@ load_dotenv()
 
 class DatabaseConfig:
     """데이터베이스 설정 클래스"""
-    
+
     # 기본값 설정
     DB_HOST = os.getenv("DB_HOST", "localhost")
     DB_PORT = int(os.getenv("DB_PORT", 3306))
