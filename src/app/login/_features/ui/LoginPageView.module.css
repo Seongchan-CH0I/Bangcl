@@ -4,7 +4,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* Slightly darker overlay */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -13,91 +13,127 @@
 
 .loginForm {
   position: relative;
-  width: 400px;
+  width: min(400px, 90vw); /* Use min() for responsive width */
   background: #fff;
-  border-radius: 15px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
-  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 35px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .closeButton {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px; /* Slightly larger for better clickability */
   cursor: pointer;
-  color: #888;
+  color: #aaa; /* Lighter color */
+  transition: color 0.2s ease-in-out;
+}
+
+.closeButton:hover {
+  color: #777;
 }
 
 .loginTitle {
-  font-size: 40px;
-  font-weight: 600;
-  margin-bottom: 4px;
+  font-size: 2.2rem; /* Adjusted font size */
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #333;
+  text-align: center;
 }
 
 .loginDesc {
-  color: #888;
-  margin-bottom: 16px;
+  color: #777;
+  margin-bottom: 15px;
+  text-align: center;
+  font-size: 0.95rem;
 }
 
 .inputLabel {
   font-weight: 500;
-  color: #999;
+  color: #555;
+  font-size: 0.9rem;
 }
 
 .inputField {
   width: 100%;
-  padding: 12px;
-  margin-top: 4px;
-  border: 1px solid #000842;
+  padding: 12px 15px;
+  margin-top: 6px;
+  border: 1px solid #ddd; /* Lighter border */
   border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
 
-.inputFieldPassword {
-  border: 1px solid #999;
+.inputField:focus {
+  border-color: #999; /* Darker on focus */
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(153, 153, 153, 0.2); /* Subtle focus ring */
 }
 
 .loginButton {
-  background: #fff;
-  color: #333;
-  border: 1px solid #ccc;
+  background: #444; /* Darker, more neutral button */
+  color: #fff;
+  border: none;
   border-radius: 8px;
-  padding: 12px 24px;
-  font-weight: 500;
-  font-size: 16px;
-  margin-top: 16px;
+  padding: 14px 24px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  margin-top: 15px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .loginButton:hover {
-  background: #f0f0f0;
-  border-color: #bbb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  background: #333;
+  transform: translateY(-1px);
 }
 
 .loginButton:active {
-  background: #e0e0e0;
-  border-color: #aaa;
-  transform: translateY(1px);
+  background: #222;
+  transform: translateY(0);
 }
 
+.toggleFormText {
+  margin-top: 20px;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.toggleFormLink {
+  color: #555; /* Neutral link color */
+  font-weight: 600;
+  text-decoration: underline;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggleFormLink:hover {
+  color: #333;
+}
+
+/* SNS buttons - assuming they are still needed, adjust for minimal */
 .snsButton {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
-  border: none;
-  margin: 0 8px;
+  border: 1px solid #eee; /* Subtle border */
+  margin: 0 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out;
 }
 
 .snsFacebook {
-  background: #18acfe;
+  background: #3b5998;
   color: #fff;
 }
 .snsApple {
@@ -106,6 +142,10 @@
 }
 .snsGoogle {
   background: #fff;
-  color: #000;
-  border: 1px solid #eee;
+  color: #555;
+  border-color: #ccc;
+}
+
+.snsButton:hover {
+  opacity: 0.9;
 } 

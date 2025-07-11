@@ -1,21 +1,31 @@
 'use client';
 
 import { useState } from 'react';
-import { LoginForm } from '../../_entities/model/types';
-import { useLogin } from '../../_entities/api/queries';
+import { LoginForm, RegisterForm } from '../../_entities/model/types';
+import { useLogin, useRegister } from '../../_entities/api/queries';
 import styles from './LoginPageView.module.css';
+import { useUserStore } from '../../_entities/model/user-store';
 
 export default function LoginPageView({ onLoginSuccess }: { onLoginSuccess: () => void }) {
-  const [form, setForm] = useState<LoginForm>({
+  const [isRegistering, setIsRegistering] = useState(false);
+  const [loginForm, setLoginForm] = useState<LoginForm>({
     email: '',
     password: '',
-    rememberMe: false,
   });
+  const [registerForm, setRegisterForm] = useState<RegisterForm>({
+    username: '',
+    email: '',
+    password: '',
+  });
+
+  const { setUsername, setUserId } = useUserStore();
   const loginMutation = useLogin();
+  const registerMutation = useRegister();
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const { name, value, type, checked } = e.target;
-    setForm((prev) => ({
+    const formSetter = isRegistering ? setRegisterForm : setLoginForm;
+    formSetter((prev) => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value,
     }));
@@ -23,7 +33,27 @@ export default function LoginPageView({ onLoginSuccess }: { onLoginSuccess: () =
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    onLoginSuccess();
+    if (isRegistering) {
+      registerMutation.mutate(registerForm, {
+        onSuccess: () => {
+          alert('회원가입이 완료되었습니다. 로그인해주세요.');
+          setIsRegistering(false);
+        },
+        onError: (error) => {
+          alert(`회원가입 실패: ${error.message}`);
+        },
+      });
+    } else {
+      loginMutation.mutate(loginForm, {
+        onSuccess: (data) => {
+          setUsername(data.username);
+          onLoginSuccess();
+        },
+        onError: (error) => {
+          alert(`로그인 실패: ${error.message}`);
+        },
+      });
+    }
   }
 
   return (
@@ -32,14 +62,29 @@ export default function LoginPageView({ onLoginSuccess }: { onLoginSuccess: () =
         <button type="button" className={styles.closeButton} onClick={onLoginSuccess}>
           &times;
         </button>
-        <h1 className={styles.loginTitle}>Sign in to name</h1>
+        <h1 className={styles.loginTitle}>{isRegistering ? 'Create Account' : 'Sign in to name'}</h1>
         <p className={styles.loginDesc}>Lorem Ipsum is simply</p>
+        
+        {isRegistering && (
+          <label className={styles.inputLabel}>
+            Username
+            <input
+              type="text"
+              name="username"
+              value={registerForm.username}
+              onChange={handleChange}
+              placeholder="Enter your username"
+              className={styles.inputField}
+            />
+          </label>
+        )}
+
         <label className={styles.inputLabel}>
           Email
           <input
             type="email"
             name="email"
-            value={form.email}
+            value={isRegistering ? registerForm.email : loginForm.email}
             onChange={handleChange}
             placeholder="Enter your email address"
             className={styles.inputField}
@@ -50,36 +95,24 @@ export default function LoginPageView({ onLoginSuccess }: { onLoginSuccess: () =
           <input
             type="password"
             name="password"
-            value={form.password}
+            value={isRegistering ? registerForm.password : loginForm.password}
             onChange={handleChange}
             placeholder="Enter your Password"
             className={`${styles.inputField} ${styles.inputFieldPassword}`}
           />
         </label>
-        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-          <label style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-            <input
-              type="checkbox"
-              name="rememberMe"
-              checked={form.rememberMe}
-              onChange={handleChange}
-            />
-            Rememebr me
-          </label>
-          <a href="#" style={{ color: '#4d4d4d', fontSize: 12 }}>Forgot Password ?</a>
-        </div>
+
+        
+
         <button type="submit" className={styles.loginButton}>
-          Login
+          {isRegistering ? 'Register' : 'Login'}
         </button>
-        <div style={{ textAlign: 'center', color: '#b5b5b5', margin: '16px 0' }}>or continue with</div>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
-          <button type="button" className={`${styles.snsButton} ${styles.snsFacebook}`}>F</button>
-          <button type="button" className={`${styles.snsButton} ${styles.snsApple}`}>A</button>
-          <button type="button" className={`${styles.snsButton} ${styles.snsGoogle}`}>G</button>
-        </div>
-        <div style={{ marginTop: 24, textAlign: 'center', color: '#000' }}>
-          If you don't have an account register<br />
-          <a href="#" style={{ color: '#0c21c1', fontWeight: 500 }}>You can Register here !</a>
+
+        <div className={styles.toggleFormText}>
+          {isRegistering ? 'Already have an account?' : "If you don't have an account register"}<br />
+          <a href="#" className={styles.toggleFormLink} onClick={() => setIsRegistering(!isRegistering)}>
+            {isRegistering ? 'Login here !' : 'You can Register here !'}
+          </a>
         </div>
       </form>
     </div>
